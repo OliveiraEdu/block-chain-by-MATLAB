@@ -1,9 +1,9 @@
 classdef Miner < handle
-    
+
 	properties
 	blockchain
 	end
-    
+
 	methods
 	function obj = Miner(blockchain)
 		obj.blockchain = blockchain;
@@ -19,23 +19,25 @@ classdef Miner < handle
 		% find appropriate selfhash
 		not_found = true;
 		iter = 1;
-		Opt.Method = 'SHA-256';
-		Opt.Input  = 'ascii';
-        
+		%Opt.Method = 'SHA-256';
+		%Opt.Input  = 'ascii';
+    Opt = 'SHA256'
+
 		tic
 		while(not_found)
-		newHash = DataHash([strcat(newBlock.getCombined(), num2str(iter))]);            
-			if(strcmp(newHash(1 : 3), '000'))             
+		%newHash = DataHash([strcat(newBlock.getCombined(), num2str(iter))]);
+    newHash = hash(Opt, [strcat(newBlock.getCombined(), num2str(iter))]);
+			if(strcmp(newHash(1 : 3), '000'))
 				newBlock.nonce = iter; % solve violently
 				newBlock.selfHash = newHash; % if the approproate selfhash is found
-				disp(newHash) 
+				disp(newHash)
 				obj.blockchain.addBlock(newBlock); % add selfhash to blockchain
 				break
 			end
 		iter = iter + 1;
 		end
 		toc
-        
+
 	end
 	end
 end

@@ -35,7 +35,7 @@ classdef BlockChain < handle
 
 	function tf = validateNewBlock(obj, newBlock) % verify that the newly added block meets the requirements or not.
 		%newHash = DataHash([strcat(newBlock.getCombined(), num2str(newBlock.nonce))]);
-    newHash = hash(Opt, [strcat(newBlock.getCombined(), num2str(newBlock.nonce))]);
+    newHash = hash('SHA256', [strcat(newBlock.getCombined(), num2str(newBlock.nonce))]);
 		if(strcmp(newHash(1:3), '000') && strcmp(newBlock.selfHash, newHash))
 			tf=  true;
 		else

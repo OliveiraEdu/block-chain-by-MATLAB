@@ -1,25 +1,36 @@
-clear; clc;
-disp('============ the genesis transcation begin ============');
+clear all;
+clc;
+disp('============ the genesis transaction begin ============');
 bc = BlockChain;
-bc; bc.blockArray(1)
+bc; 
+bc.blockArray(1);
 mining = Miner(bc);
-disp('============ the genesis transcation end ============');
+disp('============ the genesis transaction end ============');
 
-disp('============ the first transcation begin ============');
-transcation = ['A', 'B', 'MOP', '200'];
-mining.mine(transcation)
-bc; bc.blockArray(2)
-disp('============ the first transcation end ============');
+disp('============ the first transaction begin ============');
+transaction = ['A', 'B', 'MOP', '200'];
+mining.mine(transaction)
+bc; 
+bc.blockArray(2);
+disp('============ the first transaction end ============');
 
-disp('============ the second transcation begin ============');
-transcation = ['B', 'C', 'USD', '300'];
-mining.mine(transcation)
-bc; bc.blockArray(3)
-disp('============ the second transcation end ============');
+disp('============ the second transaction begin ============');
+transaction = ['B', 'C', 'USD', '300'];
+mining.mine(transaction)
+bc; 
+bc.blockArray(3);
+disp('============ the second transaction end ============');
 
-disp('============ the third transcation begin ============');
-transcation = ['C', 'A', 'HKD', '700'];
-mining.mine(transcation)
-bc; bc.blockArray(4)
-disp('============ the third transcation end ============');
+disp('============ the third transaction begin ============');
+transaction = ['C', 'A', 'HKD', '700'];
+mining.mine(transaction)
+bc; 
+bc.blockArray(4);
+disp('============ the third transaction end ============');
 
+disp('============ the fourth transaction begin ============');
+transaction = ['D', 'E', 'ETH', '1200'];
+mining.mine(transaction)
+bc; 
+bc.blockArray(5);
+disp('============ the fourth transaction end ============');

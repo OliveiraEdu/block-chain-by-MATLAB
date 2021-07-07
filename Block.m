@@ -25,6 +25,6 @@ classdef Block < handle
 	function str = getCombined(obj)
 		%str = strcat([num2str(obj.index), obj.previousHash, join(obj.data)]);
     str = strcat([num2str(obj.index), obj.previousHash, (obj.data)]);
-	end
+    end
 	end
 end

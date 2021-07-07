@@ -21,17 +21,23 @@ classdef Miner < handle
 		iter = 1;
 		%Opt.Method = 'SHA-256';
 		%Opt.Input  = 'ascii';
-    Opt = 'SHA256'
+    Opt = 'SHA256';
 
 		tic
 		while(not_found)
 		%newHash = DataHash([strcat(newBlock.getCombined(), num2str(iter))]);
     newHash = hash(Opt, [strcat(newBlock.getCombined(), num2str(iter))]);
-			if(strcmp(newHash(1 : 3), '000'))
+    if(strcmp(newHash(1 : 3), '000'))
 				newBlock.nonce = iter; % solve violently
-				newBlock.selfHash = newHash; % if the approproate selfhash is found
-				disp(newHash)
+        newBlock.selfHash = newHash; % if the approproate selfhash is found
 				obj.blockchain.addBlock(newBlock); % add selfhash to blockchain
+        
+        fprintf('data: %s \n\n',newData)
+        fprintf('index: %d \n\n',latestBlock.index+1)
+        fprintf('nonce: %d \n\n',newBlock.nonce)
+        fprintf('previousHash: %s \n\n', latestBlock.selfHash)
+        fprintf('newHash: %s \n\n', newHash)
+				
 				break
 			end
 		iter = iter + 1;
@@ -41,3 +47,4 @@ classdef Miner < handle
 	end
 	end
 end
+

@@ -3,10 +3,10 @@ clc;
 pkg load dataframe;
 warning('off', 'Octave:legacy-function');
 
-datasetFull = dataframe('~/Documents/repo/datasets/patients/data.csv');
+datasetFull = dataframe('~/Documents/repo/datasets/patients/dataMini.csv');
 
 %Reads i rows of the dataset
-i = 3;
+i = 5;
 
 dataset = datasetFull(1:i,1:end);
 

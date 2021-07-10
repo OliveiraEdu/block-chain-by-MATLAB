@@ -6,7 +6,7 @@ warning('off', 'Octave:legacy-function');
 datasetFull = dataframe('~/Documents/repo/datasets/patients/dataMini.csv');
 
 %Reads i rows of the dataset
-i = 5;
+i = 3;
 
 dataset = datasetFull(1:i,1:end);
 
@@ -17,7 +17,7 @@ bc.blockArray(1);
 mining = Miner(bc);
 disp('============ the genesis transaction end ============');
 
-%Loads each dataset lines as a block
+%Loads each dataset line as a block
 for n = 1:i
 
   line =  [dataset.array(n,1) dataset.array(n,2) dataset.array(n,3) dataset.array(n,14)];
@@ -26,7 +26,7 @@ for n = 1:i
   transaction = line;
   mining.mine(transaction)
   bc; 
-  bc.blockArray(2);
+  bc.blockArray(n);
   disp('============  end transaction ============');
 
 end

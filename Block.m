@@ -8,7 +8,12 @@ classdef Block < handle
 	nonce % random number
 	end
 
-	methods
+%The block’s function can accept 2 or 3 parameters. When two parameters are provided,
+%the constructed Block object is called a Genesis Block, which is the first block on the entire
+%blockchain; when it accepts three parameters, the third parameter is the hash value from the
+%previous block.
+ 
+ methods
 	function obj = Block(index, data, previousHash)
 		if nargin == 2 % genesis block!
 			obj.index = index ;

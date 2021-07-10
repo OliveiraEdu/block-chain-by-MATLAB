@@ -8,7 +8,7 @@ mining = Miner(bc);
 disp('============ the genesis transaction end ============');
 
 disp('============ the first transaction begin ============');
-transaction = ['A', 'B', 'MOP', '200'];
+transaction = ['A', 'B', 'MOP', '200','UP'];
 mining.mine(transaction)
 bc; 
 bc.blockArray(2);
@@ -28,9 +28,3 @@ bc;
 bc.blockArray(4);
 disp('============ the third transaction end ============');
 
-disp('============ the fourth transaction begin ============');
-transaction = ['D', 'E', 'ETH', '1200'];
-mining.mine(transaction)
-bc; 
-bc.blockArray(5);
-disp('============ the fourth transaction end ============');

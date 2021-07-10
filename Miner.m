@@ -27,7 +27,7 @@ classdef Miner < handle
 		while(not_found)
 		%newHash = DataHash([strcat(newBlock.getCombined(), num2str(iter))]);
     newHash = hash(Opt, [strcat(newBlock.getCombined(), num2str(iter))]);
-    
+    %disp(newBlock.getCombined)
     %If it does not meet the requirements(i.e., the first three digits of newHash begin with 000), try the next integer until the first three digits of newHash are 000.
     if(strcmp(newHash(1 : 3), '000'))
 				newBlock.nonce = iter; % solve violently
@@ -45,7 +45,7 @@ classdef Miner < handle
 		iter = iter + 1;
 		end
 		toc
-
+    k = newBlock.nonce/toc
 	end
 	end
 end

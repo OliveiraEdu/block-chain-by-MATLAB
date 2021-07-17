@@ -33,14 +33,7 @@ classdef Miner < handle
 				newBlock.nonce = iter; % solve violently
         newBlock.selfHash = newHash; % if the approproate selfhash is found
 				obj.blockchain.addBlock(newBlock); % add selfhash to blockchain
-        
-        fprintf('data: %s \n\n',newData)
-        fprintf('index: %d \n\n',latestBlock.index+1)
-        fprintf('nonce: %d \n\n',newBlock.nonce)
-        fprintf('previousHash: %s \n\n', latestBlock.selfHash)
-        fprintf('newHash: %s \n\n', newHash)
-				
-				break
+      break
 			end
 		iter = iter + 1;
 		end

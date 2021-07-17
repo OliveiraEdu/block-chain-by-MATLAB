@@ -25,14 +25,7 @@ classdef BlockChain < handle
 		%disp(str);
 		%gb.selfHash = DataHash(str, Opt); % calculate current hash
     gb.selfHash = hash(Opt, str); % calculate current hash
-    
-    fprintf('data: %s \n\n',gb.data)
-    fprintf('index: %d \n\n',gb.index)
-    %fprintf('nonce: %d \n\n',newBlock.nonce)
-    %fprintf('previousHash: %s \n\n', latestBlock.selfHash)
-    fprintf('newHash: %s \n\n', gb.selfHash)
-    
-	end
+  end
 
 	function addBlock(obj, newBlock) % when Miner.m successfully 'digs out' a block that meets the requirements
 		if	obj.validateNewBlock(newBlock) % call this function

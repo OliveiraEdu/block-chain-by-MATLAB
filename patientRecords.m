@@ -25,7 +25,9 @@ disp('============ the genesis transaction end ============');
 %Loads each dataset line as a block transaction
 for n = 1:i
   
+  %cell2mat - Convert the cell array c into a matrix by concatenating all elements of c into a hyperrectangle.
   transaction=cell2mat(dataset(n,[1,2,3,14]));
+  
   
   fprintf('============ begin transaction #%d ============\n',n);
   mining.mine(transaction)

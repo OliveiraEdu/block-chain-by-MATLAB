@@ -8,7 +8,7 @@ classdef BlockChain < handle
 	methods
 	function obj = BlockChain()
 		obj.blockArray =[Block(0, 'Genesis Block')]; % genesis block
-		obj.totalCount = 1 ;
+		obj.totalCount = 1;
 		obj.calculateGensisBlockHash(); % calculate the hash of genesis block
 	end
 
@@ -18,13 +18,10 @@ classdef BlockChain < handle
 
 	function calculateGensisBlockHash(obj)
 		gb = obj.blockArray(1);
-		%Opt.Method = 'SHA-256';
-		%Opt.Input  = 'ascii';
-    Opt = 'SHA256';
+		Opt = 'SHA256';
     str = strcat(num2str(gb.index), gb.data);
-		%disp(str);
-		%gb.selfHash = DataHash(str, Opt); % calculate current hash
-    gb.selfHash = hash(Opt, str); % calculate current hash
+		%disp(str)
+		gb.selfHash = hash(Opt, str); % calculate current hash
   end
 
 	function addBlock(obj, newBlock) % when Miner.m successfully 'digs out' a block that meets the requirements
@@ -34,7 +31,7 @@ classdef BlockChain < handle
 	end
 
 	function tf = validateNewBlock(obj, newBlock) % verify that the newly added block meets the requirements or not.
-		%newHash = DataHash([strcat(newBlock.getCombined(), num2str(newBlock.nonce))]);
+		%newHash = DataHash([strcat(newBlock.getCombined(), num2str(newBlock.nonce))])
     newHash = hash('SHA256', [strcat(newBlock.getCombined(), num2str(newBlock.nonce))]);
 		if(strcmp(newHash(1:3), '000') && strcmp(newBlock.selfHash, newHash))
 			tf=  true;

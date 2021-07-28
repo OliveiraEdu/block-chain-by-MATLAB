@@ -1,7 +1,7 @@
 classdef Miner < handle
 
 	properties
-	blockchain
+		blockchain
 	end
 
 	methods
@@ -19,27 +19,25 @@ classdef Miner < handle
 		% find appropriate selfhash
 		not_found = true;
 		iter = 1;
-		%Opt.Method = 'SHA-256';
-		%Opt.Input  = 'ascii';
-    Opt = 'SHA256';
+		Opt = 'SHA256';
 
-		tic
+		tic;
 		while(not_found)
-		%newHash = DataHash([strcat(newBlock.getCombined(), num2str(iter))]);
-    newHash = hash(Opt, [strcat(newBlock.getCombined(), num2str(iter))]);
-    %disp(newBlock.getCombined)
+		%newHash = DataHash([strcat(newBlock.getCombined(), num2str(iter))])
+    	newHash = hash(Opt, [strcat(newBlock.getCombined(), num2str(iter))]);
+
+	%disp(newBlock.getCombined)
     %If it does not meet the requirements(i.e., the first three digits of newHash begin with 000), try the next integer until the first three digits of newHash are 000.
     if(strcmp(newHash(1 : 3), '000'))
 				newBlock.nonce = iter; % solve violently
         newBlock.selfHash = newHash; % if the approproate selfhash is found
 				obj.blockchain.addBlock(newBlock); % add selfhash to blockchain
-      break
+      break;
 			end
 		iter = iter + 1;
 		end
-		toc
-    k = newBlock.nonce/toc
+		toc;
+    k = newBlock.nonce/toc % Computes the relation between a mined block and elapsed time, to check if mining performance is simetric
 	end
 	end
 end
-

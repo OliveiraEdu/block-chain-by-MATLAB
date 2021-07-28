@@ -28,86 +28,86 @@ tx2Hash = hash('SHA256',tx2Data)
 tx3Hash = hash('SHA256',tx3Data)
 tx4Hash = hash('SHA256',tx4Data)
 
-txTotalData = strcat(tx1Data, tx2Data, tx3Data, tx4Data)
+txTotalData1 = strcat(tx1Data, tx2Data, tx3Data, tx4Data)
 
-mining.mine(txTotalData)
-bc
-bc.blockArray(2)
+mining.mine(txTotalData1);
+bc;
+bc.blockArray(2);
 
 leaf1Hash = strcat(tx1Hash, tx2Hash)
 leaf2Hash = strcat(tx3Hash, tx4Hash)
 
-merkleRoot = strcat(leaf2Hash,leaf2Hash)
+merkleRoot1 = strcat(leaf1Hash,leaf2Hash)
 
-merkleRootHash = hash('SHA256', merkleRoot)
+merkleRoot1Hash = hash('SHA256', merkleRoot1)
 disp('============ the first block end ============')
 
 disp('============ the second block begin ============')
 
 %Transaction data
-tx1Data = ['Eleanor Ritter','female,1939-09-03','skin cancer']
-tx2Data = ['Sofia Wise','female','1956-10-16','Alzheimers disease']
-tx3Data = ['Nevaeh Perry','female','1946-09-30','kidney disease']
-tx4Data = ['Addison Combs','female','1963-01-17','breast cancer']
+tx5Data = ['Eleanor Ritter','female,1939-09-03','skin cancer']
+tx6Data = ['Sofia Wise','female','1956-10-16','Alzheimers disease']
+tx7Data = ['Nevaeh Perry','female','1946-09-30','kidney disease']
+tx8Data = ['Addison Combs','female','1963-01-17','breast cancer']
 
-txTotalData = strcat(tx1Data, tx2Data, tx3Data, tx4Data)
+txTotalData2 = strcat(tx5Data, tx6Data, tx7Data, tx8Data)
 
-mining.mine(txTotalData)
-bc
-bc.blockArray(3)
+mining.mine(txTotalData2);
+bc;
+bc.blockArray(3);
 
-leaf1Hash = strcat(tx1Hash, tx2Hash)
-leaf2Hash = strcat(tx3Hash, tx4Hash)
+leaf3Hash = strcat(tx5Data, tx6Data)
+leaf4Hash = strcat(tx7Data, tx8Data)
 
-merkleRoot = strcat(leaf2Hash,leaf2Hash)
+merkleRoot2 = strcat(leaf3Hash,leaf4Hash)
 
-merkleRootHash = hash('SHA256', merkleRoot)
+merkleRoot2Hash = hash('SHA256', merkleRoot2)
 
 disp('============ the second block end ============')
 
 disp('============ the third block begin ============')
 
 %Transaction data
-tx1Data = ['Ashley Wilson','female','1946-10-21','Alzheimers','disease']
-tx2Data = ['Levi Burns','male','1958-01-31','HIV/AIDS']
-tx3Data = ['Jonah Smith','male','1965-10-30','HIV/AIDS']
-tx4Data = ['Bella Small','female','1959-03-30','multiple sclerosis']
+tx9Data = ['Ashley Wilson','female','1946-10-21','Alzheimers','disease']
+tx10Data = ['Levi Burns','male','1958-01-31','HIV/AIDS']
+tx11Data = ['Jonah Smith','male','1965-10-30','HIV/AIDS']
+tx12Data = ['Bella Small','female','1959-03-30','multiple sclerosis']
 
 
-txTotalData = strcat(tx1Data, tx2Data, tx3Data, tx4Data)
+txTotalData3 = strcat(tx9Data, tx10Data, tx11Data, tx12Data)
 
-mining.mine(txTotalData)
-bc
-bc.blockArray(4)
+mining.mine(txTotalData3);
+bc;
+bc.blockArray(4);
 
-leaf1Hash = strcat(tx1Hash, tx2Hash)
-leaf2Hash = strcat(tx3Hash, tx4Hash)
+leaf5Hash = strcat(tx9Data, tx10Data)
+leaf6Hash = strcat(tx11Data, tx12Data)
 
-merkleRoot = strcat(leaf2Hash,leaf2Hash)
+merkleRoot3 = strcat(leaf5Hash,leaf6Hash)
 
-merkleRootHash = hash('SHA256', merkleRoot)
+merkleRoot3Hash = hash('SHA256', merkleRoot3)
 
 disp('============ the third block end ============')
 
 disp('============ the fourth block begin ============')
 
 %Transaction data
-tx1Data = ['Eli Wilson','male','1949-02-09','hypertension']
-tx2Data = ['Samantha Flores','female','1972-12-15','hypertension']
-tx3Data = ['Riley Jones','female','1967-11-20','heart disease']
-tx4Data = ['Jake Glover','male','1943-12-27','hypertension']
+tx13Data = ['Eli Wilson','male','1949-02-09','hypertension']
+tx14Data = ['Samantha Flores','female','1972-12-15','hypertension']
+tx15Data = ['Riley Jones','female','1967-11-20','heart disease']
+tx16Data = ['Jake Glover','male','1943-12-27','hypertension']
 
-txTotalData = strcat(tx1Data, tx2Data, tx3Data, tx4Data)
+txTotalData4 = strcat(tx13Data, tx14Data, tx15Data, tx16Data)
 
-mining.mine(txTotalData)
-bc
-bc.blockArray(5)
+mining.mine(txTotalData4);
+bc;
+bc.blockArray(5);
 
-leaf1Hash = strcat(tx1Hash, tx2Hash)
-leaf2Hash = strcat(tx3Hash, tx4Hash)
+leaf7Hash = strcat(tx13Data, tx14Data)
+leaf8Hash = strcat(tx15Data, tx16Data)
 
-merkleRoot = strcat(leaf2Hash,leaf2Hash)
+merkleRoot4 = strcat(leaf7Hash,leaf8Hash)
 
-merkleRootHash = hash('SHA256', merkleRoot)
+merkleRoot4Hash = hash('SHA256', merkleRoot4)
 
 disp('============ the fourth block end ============')
